@@ -1,42 +1,78 @@
-import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react'
 
-function Register() {
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
-                <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
-                </div>
-                <form className="mt-8 space-y-6" action="#" method="POST">
-                    <input type="hidden" name="remember" value="true" />
-                    <div className="rounded-md shadow-sm -space-y-px">
-                        <div>
-                            <label htmlFor="name" className="sr-only">Name</label>
-                            <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name" />
-                        </div>
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">Email address</label>
-                            <input id="email-address" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="sr-only">Password</label>
-                            <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
-                        </div>
-                        <div>
-                            <label htmlFor="password-confirm" className="sr-only">Confirm Password</label>
-                            <input id="password-confirm" name="password-confirm" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password" />
-                        </div>
-                    </div>
+export default function Register() {
+    // const router = useRouter();
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+  
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   // Handle registration logic here, like sending data to the server
+    //   // Assuming registration is successful, navigate to the dashboard
+    //   router.push('/dashboard');
+    // };
 
-                    <div>
-                        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Register
-                        </button>
-                    </div>
-                </form>
-            </div>
+    
+  return (<>
+    
+<header className="bg-blue-300 p-4 shadow-md ">
+        <div className="container mx-auto  ">
+          <h1 className="text-black text-2xl font-bold text-center ">Classroom Reservation</h1>
         </div>
-    );
+      </header>
+  
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+
+      <div className="bg-white p-8 shadow-lg rounded-lg w-full max-w-md">
+        <h2 className="text-3xl font-semibold mb-6 text-center">Register</h2>
+        <form className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full"
+          >
+            Register
+          </button>
+        </form>
+        <p className="mt-4 text-center">
+          Already have an account? <Link href="/login" className="text-blue-600 hover:underline">Login</Link>
+        </p>
+      </div>
+    </div>
+    </>
+  );
 }
 
-export default Register;

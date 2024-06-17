@@ -9,43 +9,47 @@ const Navbar = () => {
 const currentpath = usePathname();
 console.log(currentpath);
 
-
-
 const links = [
-    { label: '', href: '/' },
+    { label: '', href: '/dashboard' },
+    { label: 'Dashboard', href: '/dashboard' },
     { label: 'About', href: '/about' },
-    { label: 'isuues', href: '/isuues' },
+ 
     { label: 'Contact', href: '/contact' },
     { label: 'Login', href: '/login' },
     { label: 'Register', href: '/register' },
-    { label: 'Dashboard', href: '/' },
-    {label: 'Issues', href: '/issues'}
+
+    
   ]
 
 
   return (
-   <nav className='flex space-x-6 border-b mb-5 px-5 h-14 items-center '>
-      <Link href='/'><GrBug /></Link>
+    <div className="">
+   <nav className='flex space-x-6 border-b mb-5 px-5 h-14 items-center bg-blue-600 justify-end '>
+      <div className='flex-none'><Link href='/dashboard'><GrBug className='text-white text-2xl' /></Link></div>
       {/* css apply for each nave bar words */}
-    <ul className='flex space-x-6'>
+     
+    <ul className='flex space-x-6 '>
         {links.map(link=> 
         // 'text-zinc-400 hover:text-zinc-50 transition-color '
            
             <Link href= {link.href}
             key={link.href}
             className={classnames({
-                'text-zinc-500 ': currentpath === link.href,
-                'text-zinc-500': currentpath!== link.href,
-                'hover: text-zinc-50 transition-colors': true
+                'text-zinc-900 ': currentpath === link.href,
+                'text-zinc-100': currentpath!== link.href,
+                
+                'hover: text-zinc-100 transition-colors': true
             })}>
             {link.label}
            </Link>
         )}
     
     </ul>
+ 
    
 
    </nav>
+   </div>
   )
 } 
 
